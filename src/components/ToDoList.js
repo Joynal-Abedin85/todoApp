@@ -5,6 +5,7 @@ import TaskDetails from './TaskDetails';
 import ToDoInput from './ToDoInput';
 import { FaDeleteLeft } from 'react-icons/fa6';
 import { FaEdit } from 'react-icons/fa';
+import Leftside from './Leftside';
 
 const ToDoList = () => {
     const todos = useSelector((state) => state.todos);
@@ -18,6 +19,9 @@ const ToDoList = () => {
     return (
         <div className="container mt-4 d-flex">
             {/* Left Side - Task List */}
+            <div>
+                <Leftside></Leftside>
+            </div>
             <div className="w-100">
                 <ToDoInput></ToDoInput>
                 <ul className="list-group">
@@ -98,11 +102,13 @@ const ToDoList = () => {
             </div>
 
             {/* Right Side - Task Details Panel */}
+            <div>
             {selectedTask && (
-                <div className="w-50 ms-3 border p-3 bg-light">
+                <div className=" ms-3 border p-3 bg-light">
                     <TaskDetails task={selectedTask} onClose={() => setSelectedTask(null)} />
                 </div>
             )}
+            </div>
         </div>
     );
 };
